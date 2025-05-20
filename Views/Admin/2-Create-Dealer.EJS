@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Добави Крупие</title>
+    <link rel="stylesheet" href="/Views/Admin/2-Create-Dealer.css">
+</head>
+<body>
+    <div class="create-dealer-bar"></div>
+    <div class="create-dealer-container">
+        <form method="POST" action="/admin/create-dealer">
+            <h2>Добави Крупие</h2>
+            <% if (error) { %>
+                <div class="error"><%= error %></div>
+            <% } %>
+            <label for="fullname">Три имена</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Име Презиме Фамилия" required>
+            <label for="nickname">Прякор</label>
+            <input type="text" id="nickname" name="nickname" placeholder="Пример: Kai" required>
+            <label for="password">Парола</label>
+            <input type="password" id="password" name="password" required>
+            <label for="startDate">Дата на започване</label>
+            <input type="date" id="startDate" name="startDate" required>
+            <label>Игри</label>
+            <div class="games-checkboxes">
+                <label><input type="checkbox" name="games" value="Andar Bahar" required> Andar Bahar</label>
+                <label><input type="checkbox" name="games" value="Teen Patti" required> Teen Patti</label>
+                <label><input type="checkbox" name="games" value="Dragon Tiger" required> Dragon Tiger</label>
+                <label><input type="checkbox" name="games" value="Baccarat" required> Baccarat</label>
+                <label><input type="checkbox" name="games" value="Black Jack" required> Black Jack</label>
+            </div>
+            <button type="submit">Добави</button>
+        </form>
+    </div>
+</body>
+</html>

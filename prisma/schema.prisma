@@ -1,0 +1,27 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // или друг, ако не е Postgres
+  url      = env("DATABASE_URL")
+}
+
+// МОДЕЛ за админ
+model Admin {
+  id       Int    @id @default(autoincrement())
+  name     String @unique
+  password String
+}
+
+// МОДЕЛ за крупие (user)
+model User {
+  id        Int      @id @default(autoincrement())
+  fullname  String
+  nickname  String   @unique
+  password  String
+  startDate DateTime
+  games     String[] // масив от string-ове за игри
+}

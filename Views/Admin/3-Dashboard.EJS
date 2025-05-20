@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ Dashboard</title>
+    <link rel="stylesheet" href="/Views/Admin/3-Dashboard.css">
+</head>
+<body>
+    <div class="dashboard-bar"></div>
+    <div class="dashboard-container">
+        <h2>Всички крупиета</h2>
+        <a href="/admin/create-dealer">+ Ново крупие</a>
+        <table>
+            <tr>
+                <th>Три имена</th>
+                <th>Прякор</th>
+                <th>Дата на започване</th>
+                <th>Игри</th>
+                <th>Действия</th>
+            </tr>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.fullname %></td>
+                    <td><%= user.nickname %></td>
+                    <td><%= user.startDate ? user.startDate.toISOString().slice(0, 10) : "" %></td>
+                    <td><%= user.games ? user.games.join(", ") : "" %></td>
+                    <td>
+                        <form method="POST" action="/admin/delete-user/<%= user.id %>" style="display:inline;">
+                            <button type="submit" onclick="return confirm('Сигурен ли си?');">Изтрий</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+        <a href="/logout">Изход</a>
+    </div>
+</body>
+</html>
