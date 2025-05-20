@@ -27,7 +27,5 @@ app.get("/", (req, res) => {
   res.render("Dealer/1-Login-Dealer", { error: null });
 });
 
-// Добави тук всички останали рутове от server.js
-
 module.exports = app;
 module.exports.handler = serverless(app);
