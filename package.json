@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "dev": "node server.js",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.8.2",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "express-session": "^1.18.1",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.8.2"
+  }
+}
